@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
 
+const eventRoutes = require('./routes/event')
+
 // app
 const app = express();
 
@@ -14,6 +16,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 // cors
 app.use(cors());
+
+//routes middleware
+app.use(eventRoutes);
 
 // routes
 app.get('/api', (req, res) => {
