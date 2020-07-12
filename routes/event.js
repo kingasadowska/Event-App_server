@@ -1,9 +1,7 @@
-const express = require('express')
-const { response } = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const { time } = require('../controllers/EventController');
 
-router.get('/', (req, res) => {
-    res.json({ time: Date().toString() })
-})
+router.get('/', time);
 
 module.exports = router
