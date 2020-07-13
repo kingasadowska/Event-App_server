@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const eventRoutes = require('./routes/event');
-const { mongo, Mongoose } = require('mongoose');
+const authRoutes = require('./routes/auth');
 
 // app
 const app = express();
@@ -28,7 +28,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //routes middleware
-app.use(eventRoutes);
+app.use('/api', eventRoutes);
+app.use('/api', authRoutes);
 
 // routes
 app.get('/api', (req, res) => {
