@@ -12,3 +12,13 @@ exports.userRegisterValidator = [
         .isLength({ min: 5 })
         .withMessage('Password must contain at least 5 characters')
 ];
+
+exports.userLoginValidator = [
+    check('email')
+        .not()
+        .isEmail()
+        .withMessage('Write valid mail'),
+    check('password')
+        .isLength({ min: 5 })
+        .withMessage('Password must contain at least 5 characters')
+];
